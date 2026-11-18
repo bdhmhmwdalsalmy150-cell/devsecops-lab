@@ -17,8 +17,8 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.projectKey=YOUR_PROJECT_KEY
-            -Dsonar.organization=YOUR_ORG_KEY
+            -Dsonar.projectKey=bdhmhmwdalsalmy150-cell_devsecops-lab
+            -Dsonar.organization=bdhmhmwdalsalmy150-cell
 
       - name: Scan dependencies with Snyk
         uses: snyk/actions/python@master
