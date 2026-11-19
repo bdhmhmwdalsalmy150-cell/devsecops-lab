@@ -6,12 +6,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           fetch-depth: 0
 
       - name: SAST with SonarQube
-        uses: SonarSource/sonarcloud-github-action@master
+        uses: SonarSource/sonarcloud-github-action@ba3875ecf642b2129de2b589510c81a8b53dbf4e # master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -21,7 +21,7 @@ jobs:
             -Dsonar.organization=bdhmhmwdalsalmy150-cell
 
       - name: Scan dependencies with Snyk
-        uses: snyk/actions/python@master
+        uses: snyk/actions/python@11b673cfb4b0dc0d860a1323caa199d54950dcce # master
         continue-on-error: true
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
@@ -30,7 +30,7 @@ jobs:
         run: docker build -t myapp:latest .
 
       - name: Container scanning with Trivy
-        uses: aquasecurity/trivy-action@master
+        uses: aquasecurity/trivy-action@38b337fff0a2f984d5be173c99e3f633438167ec # master
         with:
           image-ref: 'myapp:latest'
           format: 'table'
